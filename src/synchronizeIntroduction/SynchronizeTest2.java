@@ -16,7 +16,7 @@ public class SynchronizeTest2 {
         System.out.println("Value in main thread: "+StaticVariableThread.counter);
         StaticVariableThread thread2 = new StaticVariableThread();
         thread2.run();
-        
+
         System.out.println("Value in main thread: "+StaticVariableThread.counter);
     }
 }
