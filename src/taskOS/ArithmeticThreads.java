@@ -1,33 +1,30 @@
 package taskOS;
-class TaskThreadOrWorkingThreadWhatever extends Thread {
-    public static int commonResource = 0;
+class TaskThreadOrWorkingThreadWhatever extends Thread
+{public static int commonResource = 0;
     private int k;
-    public TaskThreadOrWorkingThreadWhatever(int k) {
-        this.k = k;
-    }
+    public TaskThreadOrWorkingThreadWhatever(int k)
+    {this.k = k;}
     @Override
     public void run() {
         while (true) {
         System.out.println("Hello, my name is " + this.getName());
-        if (commonResource % k != 0) {
-            synchronized (this) {
+        if (commonResource % k != 0)
+        {synchronized (this) {
                 int tempCR = commonResource;
                 commonResource++;
                 System.out.println(this.getName()+" : common resource went from "+tempCR+" to "+commonResource);}
             try {
-                sleep(k * 1000);
-            } catch (InterruptedException e) {
-            }}
+                Thread.sleep(k * 1000);
+                } catch (InterruptedException e) {}
+        }
             else {
             synchronized (this) {
                 int tempCR = commonResource;
                 commonResource += k + 1;
                 System.out.println(this.getName()+" : common resource went from "+tempCR+" to "+commonResource);
             }
-            try {
-                sleep(1000);
-            } catch (InterruptedException e) {
-            }}
+            try {sleep(1000);} catch (InterruptedException e) {}
+        }
         if(commonResource%(k*k) == 0) {
             synchronized (this) {
                 int tempCR = commonResource;
