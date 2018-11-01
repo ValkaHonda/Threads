@@ -7,14 +7,13 @@ class Counter {
         this.count = count;
     }
     public void incrementCounter(){
-        synchronized (this) {
-            count++;
-        }
+synchronized (this){
+            count++;}
+
     }
     public int getCounter(){
-        synchronized (this){
-            return count;
-        }
+          synchronized (this) {return count;}
+
     }
 }
 
