@@ -2,19 +2,13 @@ package taskOS;
 class Pool {
     private int poolVolume;
 
-    public Pool(int poolVolume) {
-        this.poolVolume = poolVolume;
-    }
+    public Pool(int poolVolume) {this.poolVolume = poolVolume;}
 
-    public int getPoolVolume() {
-        synchronized (this) {
-            return poolVolume;
-        }}
+    public int getPoolVolume()
+    {synchronized (this) {return poolVolume;}}
 
-    public void changeVolume(int volume) {
-        synchronized (this) {
-            this.poolVolume += volume;
-        }}}
+    public void changeVolume(int volume)
+    {synchronized (this) {this.poolVolume += volume;}}}
 
 class PoolThread extends Thread {
 private Pool pool;
